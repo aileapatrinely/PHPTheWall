@@ -8,8 +8,20 @@
     <title>The Wall</title>
 </head>
 <body>
+    <div>
     <form>
-<--form for messages and comments-->
+        <--errors for messages-->
+        <--form for messages-->
     </form>
+</div>
+<div>
+    <form>
+        <--errors for comments-->
+        <--form for comments-->
+</form>
+</div>
+<div>
+    <--logout here-->
+</div>
 </body>
 </html>
