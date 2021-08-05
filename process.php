@@ -159,11 +159,40 @@ VALUES ('{$_SESSION['user_id']}', '{$message}', NOW(), NOW())";
     if($last_row_id>0){
         //successful message save
         //get all messages and comments again
-
+        get_messages_and_comments();
+    } else{
+        die('Insert failed for message.');
     }
+    header('location: success.php');
+    die();
 }
 //new comment form
+else if(isset($_POST['action']) && $_POST['action']=='new_comment'){
+    $comment=escape_this_string($_POST['comment']);
+
+    $query= "INSERT INTO comments (user_id, message_id, comment, created_at, updated_at) 
+VALUES ('{$_SESSION['user_id']}', '{$_POST['message_id']}', '{$coment}', NOW(), NOW())";
+    $last_row_id=run_mysql_query($query);
+    if($last_row_id>0){
+        //successful comment save
+        //get all messages and comments again
+        get_messages_and_comments();
+    } else{
+        die('Insert failed for comment.');
+    }
+    header('location: success.php');
+    die();
+}
 //delete message form
+else if(isset($_POST['action']) && $_POST['action']=='delete'){
+    $message_id=escape_this_string($_POST['message_id']);
+    $query="DELETE FROM messages WHERE id = {$message_id}";
+    run_mysql_query($query);
+
+    get_messages_and_comments();
+    header('location: success.php');
+    die();
+}
 //no form
 else{
     //someone on process.php w/o submitting a form
