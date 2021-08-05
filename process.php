@@ -155,7 +155,8 @@ else{
     header('location: index.php');
     die();
 }
-//new message form
+//new message form needs to be and else if chain with that stuff^
+
 //new comment form
 //delete message form
 ?>
