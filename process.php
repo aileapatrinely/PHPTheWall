@@ -149,14 +149,14 @@ else if(isset($_POST['action']) && $_POST['action']=='logout'){
     header('location: index.php');
     die();
 }
+//new message form needs to be and else if chain with that stuff^
+
+//new comment form
+//delete message form
 //no form
 else{
     //someone on process.php w/o submitting a form
     header('location: index.php');
     die();
 }
-//new message form needs to be and else if chain with that stuff^
-
-//new comment form
-//delete message form
 ?>
