@@ -21,7 +21,10 @@
 </form>
 </div>
 <div>
-    <--logout here-->
+<form action="process.php" method="post">
+        <input type="hidden" name="action" value="logout">
+        <input type="submit" value="Logging out? That's fine. No, I'm not upset.">
+</form>
 </div>
 </body>
 </html>
