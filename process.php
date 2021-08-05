@@ -150,7 +150,18 @@ else if(isset($_POST['action']) && $_POST['action']=='logout'){
     die();
 }
 //new message form needs to be and else if chain with that stuff^
+else if(isset($_POST['action']) && $_POST['action']=='new_message'){
+    $message = escape_this_string($_POST['message']);
 
+    $query= "INSERT INTO messages (user_id, message, created_at, updated_at) 
+VALUES ('{$_SESSION['user_id']}', '{$message}', NOW(), NOW())";
+    $last_row_id=run_mysql_query($query);
+    if($last_row_id>0){
+        //successful message save
+        //get all messages and comments again
+
+    }
+}
 //new comment form
 //delete message form
 //no form
@@ -158,5 +169,19 @@ else{
     //someone on process.php w/o submitting a form
     header('location: index.php');
     die();
+}
+//get_messages_and_comments function
+function get_messages_and_comments(){
+    $messages_query= "SELECT messages.*, users.id 
+    AS user_id, users.first_name, users.last_name FROM messages 
+    JOIN users ON messages.user_id = users.id ORDER BY id DESC";
+    $messages = fetch_all($messages_query);
+
+    $comments_query= "SELECT comments.*, users.first_name, users.last_name 
+    FROM comments JOIN users ON comments.user_id = users.id";
+    $comments = fetch_all($comments_query);
+
+    $_SESSION['messages'] = $messages;
+    $_SESSION['comments'] = $comments;
 }
 ?>
