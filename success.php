@@ -25,11 +25,15 @@
         <textarea id="messaage" name="message"></textarea>
         <input type="submit" value="You sure you want to say that? Yeah? Okay.">
 </form>
+<--this is where messages will display-->
+<--date display?-->
 </div>
 <div>
 <--form for comments-->
 <form action="process.php" method="post">
 </form>
+<--comment display-->
+<--dates?-->
 </div>
 </body>
 </html>
