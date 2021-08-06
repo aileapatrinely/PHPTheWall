@@ -11,21 +11,24 @@
     <h4>Coding Dojo Wall</h4>
     <h4>Welcome <?= $_SESSION['first_name']?></h4>
     <div>
-    <--form for messages-->
+<--form for logout-->
     <form action="process.php" method="post">
         <input type="hidden" name="action" value="logout">
-        <input type="submit" value="Logout">
+        <input type="submit" value="Logging out? That's fine. No, I'm not upset.">
     </form>
 </div>
 <div>
-    <form>
-        <--form for comments-->
+    <--form for messages-->
+    <form action="process.php" method="post">
+        <label for="message">Post a Message</label>
+        <input type="hidden" name="action" value="new_message">
+        <textarea id="messaage" name="message"></textarea>
+        <input type="submit" value="You sure you want to say that? Yeah? Okay.">
 </form>
 </div>
 <div>
+<--form for comments-->
 <form action="process.php" method="post">
-        <input type="hidden" name="action" value="logout">
-        <input type="submit" value="Logging out? That's fine. No, I'm not upset.">
 </form>
 </div>
 </body>
