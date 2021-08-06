@@ -26,6 +26,8 @@
         <input type="submit" value="You sure you want to say that? Yeah? Okay.">
 </form>
 <--this is where messages will display-->
+<?php foreach($_SESSION['messages'] as $message){?>
+<?php }?>
 <--date display?-->
 </div>
 <div>
