@@ -8,15 +8,17 @@
     <title>The Wall</title>
 </head>
 <body>
+    <h4>Coding Dojo Wall</h4>
+    <h4>Welcome <?= $_SESSION['first_name']?></h4>
     <div>
-    <form>
-        <--errors for messages-->
-        <--form for messages-->
+    <--form for messages-->
+    <form action="process.php" method="post">
+        <input type="hidden" name="action" value="logout">
+        <input type="submit" value="Logout">
     </form>
 </div>
 <div>
     <form>
-        <--errors for comments-->
         <--form for comments-->
 </form>
 </div>
