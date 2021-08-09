@@ -27,11 +27,11 @@
         <input type="submit" value="You sure you want to say that? Yeah? Okay.">
 </form>
 </div><!--messages form-->
-<!-- this is where messages will display--> 
+<!-- this is where messages will display-->
 <?php foreach($_SESSION['messages'] as $message){?>
     <div><!--outer-->
         <div><!--inner-->
-            <h4><?= $message['first_name'] ?> <?= $message['last_name']?> 
+            <h4><?= $message['first_name'] ?> <?= $message['last_name']?>
             - <?= date_format(date_create($message['created_at']), 'F jS Y') ?> </h4>
             <p><?= $message['message'] ?></p>
         <?php
@@ -43,25 +43,32 @@
                 <input type="hidden" name="message_id" value="<?= $message['id']?>">
                 <input type="submit" value="Delete">
             </form>
-            }
-<?php }?>
+    <?php   } ?>
 </div><!--inner-->
 </div><!--outer-->
 <?php foreach($_SESSION['comments'] as $comment){
     if ($comment['message_id'] == $message['id']){ ?>
     <div>
         <div>
-            <h5><?= $comment['first_name'] ?> <?= $comment['last_name'] ?> - 
+            <h5><?= $comment['first_name'] ?> <?= $comment['last_name'] ?> -
             <?= date_format(date_create($comment['created_at']), 'M jS Y') ?></h5>
             <p><?= $comment['comment'] ?></p>
     </div>
 <?php }
 } ?>
+<div>
+<div>
 <!--form for comments-->
 <form action="process.php" method="post">
+    <input type="hidden" name="action" value="new_comment">
+    <input type="hidden" name="message_id" value="<?= $message['id']?>">
+    <label for="comment"> Comment:</label>
+    <textarea id="comment" name="comment"></textarea>
+    <input type="submit" value="Post Comment">
 </form>
-<!--comment display-->
-<!--dates?-->
-</div><!--1-->
+</div>
+</div>
+<?php } ?>
+</div>
 </body>
 </html>
