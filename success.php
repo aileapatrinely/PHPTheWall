@@ -38,6 +38,11 @@
             $time_diff= date_diff(date_create($message['created_at']), date_create($now));
             if (($message['user_id']==$_SESSION['user_id']) && ($time_dif->days < 1 && $time_diff->i <=30)){?>
             <!--dis where da delete go-->
+            <form action="process.php" method="post">
+                <input type="hiddden" name="action" value="delete">
+                <input type="hidden" name="message_id" value="<?= $message['id']?>">
+                <input type="submit" value="Delete">
+            </form>
             }
 <?php }?>
 </div><!--inner-->
