@@ -47,6 +47,16 @@
 <?php }?>
 </div><!--inner-->
 </div><!--outer-->
+<?php foreach($_SESSION['comments'] as $comment){
+    if ($comment['message_id'] == $message['id']){ ?>
+    <div>
+        <div>
+            <h5><?= $comment['first_name'] ?> <?= $comment['last_name'] ?> - 
+            <?= date_format(date_create($comment['created_at']), 'M jS Y') ?></h5>
+            <p><?= $comment['comment'] ?></p>
+    </div>
+<?php }
+} ?>
 <!--form for comments-->
 <form action="process.php" method="post">
 </form>
